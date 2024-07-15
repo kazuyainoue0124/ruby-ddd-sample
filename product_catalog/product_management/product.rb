@@ -17,4 +17,3 @@ class ProductCatalog::ProductManagement::Product
     true
   end
 end
-
