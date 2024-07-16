@@ -1,5 +1,5 @@
 # セール Aggregateルート
-class ProductCatalog::SaleManagement::Sale
+class Shopping::ProductCatalog::SaleManagement::Sale
   attr_reader :from, :to, :percentage_discount, :fixed_amount_discount
 
   # パーセント割引も固定額値引も指定されていないケースを考慮していないが
@@ -9,12 +9,12 @@ class ProductCatalog::SaleManagement::Sale
     @to = to
     if percentage.present?
       @percentage_discount = 
-        ProductCatalog::SaleManagement::PercentageDiscount.new(percentage)
+        Shopping::ProductCatalog::SaleManagement::PercentageDiscount.new(percentage)
       return
     end
 
     @fixed_amount_discount = 
-      ProductCatalog::SaleManagement::FixedAmountDiscount.new(target_price, fixed_amount)
+      Shopping::ProductCatalog::SaleManagement::FixedAmountDiscount.new(target_price, fixed_amount)
   end
 
   def valid?

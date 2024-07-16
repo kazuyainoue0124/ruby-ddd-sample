@@ -1,5 +1,5 @@
 # 固定額値引の計算をするビジネスルール
-class ProductCatalog::ProductSearch::FixedAmountDiscountRule
+class Shopping::ProductCatalog::ProductSearch::FixedAmountDiscountRule
   def initialize(target_price, fixed_amount)
     @target_price = target_price
     @fixed_amount = fixed_amount
@@ -12,6 +12,6 @@ class ProductCatalog::ProductSearch::FixedAmountDiscountRule
     # 値引後価格が0以下になるなら値引後価格が1円になるように値引
     return price - 1 if price <= @fixed_amount
 
-    ProductCatalog::ProductSearch::Amount.new(@fixed_price)
+    Shopping::ProductCatalog::ProductSearch::Amount.new(@fixed_price)
   end
 end

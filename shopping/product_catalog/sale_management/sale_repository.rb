@@ -1,5 +1,5 @@
-class ProductCatalog::SaleManagement::SaleRepository
-  # 引数は ProductCatalog::SaleManagement::Sale のインスタンス
+class Shopping::ProductCatalog::SaleManagement::SaleRepository
+  # 引数は Shopping::ProductCatalog::SaleManagement::Sale のインスタンス
   # percentage_discount&.percentage などの&.は
   # percentage_discountがnilだった場合に
   # percentageメソッドを呼び出さずにnilを返すメソッド呼び出し方法

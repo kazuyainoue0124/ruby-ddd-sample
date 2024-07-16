@@ -1,5 +1,5 @@
 # パーセント割引の計算をするビジネスルール
-class ProductCatalog::ProductSearch::PercentageDiscountRule
+class Shopping::ProductCatalog::ProductSearch::PercentageDiscountRule
   def initialize(percentage)
     @percentage = percentage
   end

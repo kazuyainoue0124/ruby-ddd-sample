@@ -1,4 +1,4 @@
-class ProductCatalog::ProductSearch::ProductListRepository
+class Shopping::ProductCatalog::ProductSearch::ProductListRepository
   def search(name: '', from_price: nil, to_price: nil, page: nil)
     products = Product.all
     products = products.where('name LIKE ?', "%#{name}%") if name.present?
@@ -15,7 +15,7 @@ class ProductCatalog::ProductSearch::ProductListRepository
     sales = Sale.where('`from` <= ? AND `to` >= ?', Time.zone.now, Time.zone.now)
                 .select(:percentage, :target_price, :fixed_amount)
     sale_hash_list = sales.map(&:attributes).map(&:symbolize_keys)
-    ProductCatalog::ProductSearch::ProductList.new(product_hash_list, sale_hash_list)
+    Shopping::ProductCatalog::ProductSearch::ProductList.new(product_hash_list, sale_hash_list)
   end
 end
 

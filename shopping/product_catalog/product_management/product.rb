@@ -1,5 +1,5 @@
 # 商品 Aggregateルート
-class ProductCatalog::ProductManagement::Product
+class Shopping::ProductCatalog::ProductManagement::Product
   attr_reader :name, :price, :warehouses
 
   def initialize(name, price, warehouse_ids)
@@ -7,7 +7,7 @@ class ProductCatalog::ProductManagement::Product
     @price = price
     # 倉庫IDの配列の要素を1つずつ取り出してWarehouseインスタンスの配列を作る
     @warehouses = warehouse_ids.map do |warehouse_id|
-      ProductCatalog::ProductManagement::Warehouse.new(warehouse_id)
+      Shopping::ProductCatalog::ProductManagement::Warehouse.new(warehouse_id)
     end
   end
 

@@ -1,5 +1,5 @@
 # 商品一覧
-class ProductCatalog::ProductSearch::ProductList
+class Shopping::ProductCatalog::ProductSearch::ProductList
   attr_reader :products
 
   # 引数のproductsは以下のような配列
@@ -10,11 +10,11 @@ class ProductCatalog::ProductSearch::ProductList
   #   ... ]
   def initialize(products, sales_infos)
     # SaleDiscountRuleをインスタンス化
-    sale_discount_rule = ProductCatalog::ProductSearch::SaleDiscountRule.new(sales_infos)
+    sale_discount_rule = Shopping::ProductCatalog::ProductSearch::SaleDiscountRule.new(sales_infos)
 
     # 引数の配列の要素を1つずつ取り出してProductインスタンスの配列を作る
     @products = products.map do |product|
-      ProductCatalog::ProductSearch::Product.new(product[:name], product[:price], sale_discount_rule)
+      Shopping::ProductCatalog::ProductSearch::Product.new(product[:name], product[:price], sale_discount_rule)
     end
   end
 end

@@ -1,5 +1,5 @@
 # パーセント割引
-class ProductCatalog::SaleManagement::PercentageDiscount
+class Shopping::ProductCatalog::SaleManagement::PercentageDiscount
   attr_reader :percentage
 
   def initialize(percentage)

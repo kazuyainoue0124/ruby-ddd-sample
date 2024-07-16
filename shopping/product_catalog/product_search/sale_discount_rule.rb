@@ -1,15 +1,15 @@
 # セールの割引価格を計算するビジネスルール
-class ProductCatalog::ProductSearch::SaleDiscountRule
+class Shopping::ProductCatalog::ProductSearch::SaleDiscountRule
   def initialize(sale_infos)
     # sale_info[:percentage]があるならPercentageDiscountRule
     # なければFixedAmountDiscountRuleを生成
     # のインスタンスを生成して@sale_listに入れる
     @sale_list = sale_infos.map do |sale_info|
       if sale_info[:percentage].present?
-        ProductCatalog::ProductSearch::PercentageDiscountRule.new(sale_info[:percentage])
+        Shopping::ProductCatalog::ProductSearch::PercentageDiscountRule.new(sale_info[:percentage])
       end
 
-      ProductCatalog::ProductSearch::FixedAmountDiscountRule.new(
+      Shopping::ProductCatalog::ProductSearch::FixedAmountDiscountRule.new(
         sale_info[:target_price],
         sale_info[:fixed_amount]
       )
@@ -18,7 +18,7 @@ class ProductCatalog::ProductSearch::SaleDiscountRule
 
   # discount_amountメソッドに直接priceを渡していたのをValueObjectを渡す形に変更
   def discounted_price(price)
-    price_vo = ProductCatalog::ProductSearch::Amount.new(price)
+    price_vo = Shopping::ProductCatalog::ProductSearch::Amount.new(price)
     applicable_sale = @sale_list.max_by do |sale|
       sale.discount_amount(price_vo)
     end

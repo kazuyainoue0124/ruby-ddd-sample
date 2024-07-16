@@ -1,4 +1,4 @@
-class ProductCatalog::ProductSearch::Product
+class Shopping::ProductCatalog::ProductSearch::Product
   attr_reader :price
 
   def initialize(name, price, sale_discount_rule)

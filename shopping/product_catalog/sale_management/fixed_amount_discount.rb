@@ -1,5 +1,5 @@
 # 固定額値引
-class ProductCatalog::SaleManagement::FixedAmountDiscount
+class Shopping::ProductCatalog::SaleManagement::FixedAmountDiscount
   attr_reader :target_price, :fixed_amount
 
   def initialize(target_price, fixed_amount)

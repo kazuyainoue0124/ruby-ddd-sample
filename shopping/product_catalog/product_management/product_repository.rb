@@ -2,7 +2,7 @@
 # products ||--o{ product_warehouses }o--|| warehouses
 # このクラスの中で呼んでいる Product.new は
 # ActiveRecord の Product クラスをインスタンス化している
-class ProductCatalog::ProductManagement::ProductRepository
+class Shopping::ProductCatalog::ProductManagement::ProductRepository
   # 引数はProduct Aggregate
   def save(product)
     ar_product = Product.new(name: product.name, price: product.price)

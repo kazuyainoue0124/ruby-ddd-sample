@@ -1,4 +1,4 @@
-class ProductCatalog::ProductSearch::Amount
+class Shopping::ProductCatalog::ProductSearch::Amount
   include Comparable # 比較演算子のために必要
 
   def initialize(value)
