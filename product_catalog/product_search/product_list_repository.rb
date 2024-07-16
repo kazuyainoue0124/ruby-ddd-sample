@@ -12,7 +12,10 @@ class ProductCatalog::ProductSearch::ProductListRepository
                                 .map(&:attributes)
                                 .map(&:symbolize_keys)
 
-    ProductCatalog::ProductSearch::ProductList.new(product_hash_list)
+    sales = Sale.where('`from` <= ? AND `to` >= ?', Time.zone.now, Time.zone.now)
+                .select(:percentage, :target_price, :fixed_amount)
+    sale_hash_list = sales.map(&:attributes).map(&:symbolize_keys)
+    ProductCatalog::ProductSearch::ProductList.new(product_hash_list, sale_hash_list)
   end
 end
 
